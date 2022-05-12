@@ -1,7 +1,7 @@
 ## Objetivo
 Demonstrar o uso do Cypress no dia a dia: recursos e funcionalidades
 
-## pastas do projeto
+## Pastas do projeto
 - cypress-hero/cypress/integration (ficam os testes)
     - unico_arquivo_spec.js             # exemplo sem page objets - tudo em um unico arquivo
     - testes_com_page_objects_spec.js   # exemplo com page objets - clean
@@ -21,7 +21,7 @@ Demonstrar o uso do Cypress no dia a dia: recursos e funcionalidades
 
 
 
-# Passos rodar aplicação local:
+# Passos Rodar Aplicação Local:
 
 ### Pré-requisitos:
     Windows, macbook, linux
@@ -74,7 +74,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * [link] https://github.com/samlucax/youtube-cypress/blob/video2/cypress/support/commands.js
 
 
-# CYPRESS - RECURSOS
+
+
+# Cypress - Novidades
 Itens com '[🔥🔥🔥]' são novidades para automação web...
 cypress possibilita automação de:
 - api rest [🔥🔥🔥]
@@ -105,9 +107,10 @@ cypress possibilita automação de:
     })
 ```
 
-# CYPRESS - FUNCIONALIDADES
 
-## exportar página
+
+# Cypress - Recursos
+## Exportar página
 ```js
     export default new HomePage();
 ```
@@ -126,17 +129,17 @@ cypress possibilita automação de:
 
 
 
-# OUTROS LINKS 
-## mapear paginas: actions
+# Outros Links
+## Actions
    - https://github.com/wlsf82/buger-eats-cypress-discovery
    - https://github.com/bahmutov/test-todomvc-using-app-actions
    
-## mapear paginas: page objet
+## Page object
    - https://github.com/Tiago0Br/buger-eats-cypress-discovery
    - https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
    
 
-## page objects usar ou nao
+## Usar ou não Page Objects?
     Walmyr Filho falou isso no video: https://www.youtube.com/watch?v=YyU8wHm5cv4
     04:30 ele cita porque o page objects é desnecessario, tendo um sistema de 5 ou 1.000 paginas (exemplo)
     16:50 à 20:30 ele cita umas das grandes vantagens do uso do cypress:
@@ -145,17 +148,17 @@ cypress possibilita automação de:
         - funcionalidade cy.request também citada no curso 'Testes automatizados com Cypress (intermediário)', ], https://www.udemy.com/course/testes-automatizados-com-cypress-intermediario/
     
 
-## Comandos mais usados cypress - 3 estrelas starstarstar
+## Comandos mais usados cypress - 3 estrelas stars
     https://github.com/samlucax/cypress-learning-checklist
 
-### cypress essential (mind maping)
+### Cypress essential (mind maping)
     https://whimsical.com/cypress-essencial-XpeRr4NebcFJkC2Lpwm4W4
     https://github.com/samlucax/cypress-essencial-mindmap
 
-### sites bons para treinar automação
+### Sites bons para treinar automação
     https://github.com/cypress-io/cypress-realworld-app
 
-### videos
+### Videos
     Cypress Samuel agilizei
         playlist 4 videos 'Cypress: do zero ao reporte' - https://www.youtube.com/watch?v=gTRMuWCp8mE&list=PLnUo-Rbc3jjyx5BVnG8MB7vNd5ecu2yP1
         codigo fonte = https://github.com/samlucax/youtube-cypress/tree/master
@@ -172,9 +175,9 @@ cypress possibilita automação de:
 
 
 
-# FERRAMENTAS
+# Ferramentas
 
-## VISUAL STUDIO CODE - Extensões para Cypress
+## Visual Code - extensões para cypress
 https://www.youtube.com/watch?v=JGVB97ns0NQ
 
 - ES6 Mocha Snippets - Cory Noonan
