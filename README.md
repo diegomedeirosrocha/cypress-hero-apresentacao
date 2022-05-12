@@ -19,6 +19,8 @@ Demonstrar o uso do Cypress no dia a dia: recursos e funcionalidades
     - cypress-hero/cypress/support/pages/Logon/elements.js - campos
     - cypress-hero/cypress/support/pages/Logon/index.js - funcoes (chamar nos scripts)
 
+
+
 # Passos rodar aplicação local:
 
 ### Pré-requisitos:
@@ -50,6 +52,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
     JavaScript
     Cypress
 
+
+
 ## Autores-Colaboradores
 
 * **Diego Rocha** - *Create project*
@@ -70,46 +74,28 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * [link] https://github.com/samlucax/youtube-cypress/blob/video2/cypress/support/commands.js
 
 
-# CYPRESS - OUTROS ITENS
-
-## recursos
-OBS: itens com '[🔥🔥🔥]' -> novidades para automação web...
-
+# CYPRESS - RECURSOS
+Itens com '[🔥🔥🔥]' são novidades para automação web...
 cypress possibilita automação de:
 - api rest [🔥🔥🔥]
 
 - frontend
     get (id fixo, data-cy, selector)
     type (escrita valores em campos)
-  
-  - mapear paginas: page objects / actions
-        com actions - https://github.com/wlsf82/buger-eats-cypress-discovery
-        com page objet - https://github.com/Tiago0Br/buger-eats-cypress-discovery
-        https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
-        https://github.com/bahmutov/test-todomvc-using-app-actions
+- quando clicamos em um botao na pagina, ele consegue 'interceptar o resultado do request' [***] [🔥🔥🔥]
+    response status: 200, 201, 204... [🔥🔥🔥]
+    response body: id 571045 [🔥🔥🔥]
 
-  - algo bem discutido é uso ou não do page objects (usar ou não em cypress), vale dar uma olhada no video do Walmyr Filho:
-    - video https://www.youtube.com/watch?v=YyU8wHm5cv4
-      - 04m30s -> page objects desnecessario, 5 ou 1k paginas
-      - 16m50s a 20m30s ->  pq nao usar P.O.
-        - ele cita que costumamos ter poucos testes login, 1 teste sucesso (que vão usar login usando a página via front)
-        - demais testes que não são realmente teste de login, ele faria o login via backend e testes ficarem mais robustos
-        - ele cita o curso 'interdiario', funcionalidade cy.request
-   
-
-  - permite capturar o resultado do request, apos clicar em um campo da tela [🔥🔥🔥]
-    - response status: 200, 201, 204... [🔥🔥🔥]
-    - validar response body, retornado exemplo 'id 571045' [🔥🔥🔥]
-
+## interceptar o resultado do request [***]
 ```js
-    //preparando -> 
+    //preparando
     cy.server()
     cy.route('POST', '**/ongs').as('postInsertOng')
 
-    //acao - click objecto da tela
+    //acao - click botao
     cy.get(element.cadastrar).click()  
 
-    //validar resultado do click (request)
+    //validar resultado retornado
     cy.wait('@postInsertOng').then((xhr) => {
     cy.log(xhr.response)
         expect(xhr.status).be.eq(200);
@@ -119,45 +105,54 @@ cypress possibilita automação de:
     })
 ```
 
-### exportar página
+# CYPRESS - FUNCIONALIDADES
+
+## exportar página
 ```js
     export default new HomePage();
 ```
 
-### aliases
+## Aliases
 ```js
     cy.route('POST', '**/incidents').as('insertIncident')
     cy.get(".element").as("myElement");
 ```
     https://github.com/janmanfai/cypress-cheat-sheet#aliases
 
-### Comandos mais usados
-    "Comandos usados com frequência alta - 3 estrelas starstarstar" -> https://github.com/samlucax/cypress-learning-checklist
-    https://github.com/janmanfai/cypress-cheat-sheet#aliases
-    
-
-### Como mostrar documentação cypress ao passar mouse em cima do comando, exemplo: cypress.visit(''), coloque essa linha em cima do arquivos:
+## Como mostrar documentação cypress ao passar mouse em cima do comando, exemplo: cypress.visit(''), coloque essa linha em cima do arquivos:
 ```js
     "/// <reference types="Cypress" />"
 ```
 
-### Extensões do VSCode que eu uso com Cypress | AgiliDrops #06
-https://www.youtube.com/watch?v=JGVB97ns0NQ
 
-- ES6 Mocha Snippets - Cory Noonan
-- Cypress Snippets
-- Add Only
-- Fold Plus
-- Bracket Pair Colorizer 2
-- Material Icon Theme
-- Cypress Helper
-- Visual Studio IntelliCode
+
+# OUTROS LINKS 
+## mapear paginas: actions
+   - https://github.com/wlsf82/buger-eats-cypress-discovery
+   - https://github.com/bahmutov/test-todomvc-using-app-actions
+   
+## mapear paginas: page objet
+   - https://github.com/Tiago0Br/buger-eats-cypress-discovery
+   - https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
+   
+
+## page objects usar ou nao
+    Walmyr Filho falou isso no video: https://www.youtube.com/watch?v=YyU8wHm5cv4
+    04:30 ele cita porque o page objects é desnecessario, tendo um sistema de 5 ou 1.000 paginas (exemplo)
+    16:50 à 20:30 ele cita umas das grandes vantagens do uso do cypress:
+    - costumamos ter poucos testes login, 1 teste sucesso (neste cenário usaremos a página para a automação - via front)
+    - demais testes, que não são teste de login, faria o login via backend, deste modo os testes ficariam mais robustos
+        - funcionalidade cy.request também citada no curso 'Testes automatizados com Cypress (intermediário)', ], https://www.udemy.com/course/testes-automatizados-com-cypress-intermediario/
+    
+
+## Comandos mais usados cypress - 3 estrelas starstarstar
+    https://github.com/samlucax/cypress-learning-checklist
 
 ### cypress essential (mind maping)
     https://whimsical.com/cypress-essencial-XpeRr4NebcFJkC2Lpwm4W4
     https://github.com/samlucax/cypress-essencial-mindmap
 
-### sites bons para treinar treinar automação
+### sites bons para treinar automação
     https://github.com/cypress-io/cypress-realworld-app
 
 ### videos
@@ -177,6 +172,21 @@ https://www.youtube.com/watch?v=JGVB97ns0NQ
 
 
 
-## Achou interessante o material?
+# FERRAMENTAS
+
+## VISUAL STUDIO CODE - Extensões para Cypress
+https://www.youtube.com/watch?v=JGVB97ns0NQ
+
+- ES6 Mocha Snippets - Cory Noonan
+- Cypress Snippets
+- Add Only
+- Fold Plus
+- Bracket Pair Colorizer 2
+- Material Icon Theme
+- Cypress Helper
+- Visual Studio IntelliCode
+
+
+# Achou interessante o material?
 
 **_Deixe uma star ⭐ no repositório e um follow no [meu perfil](https://github.com/diegomedeirosrocha), isso me incentiva a criar conteúdos para comunidade**
