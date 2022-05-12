@@ -1,7 +1,14 @@
-## Objetivo
+# Projeto
+### Objetivo
 Demonstrar o uso do Cypress no dia a dia: recursos e funcionalidades
 
-## Pastas do projeto
+### Tecnologias
+As seguintes ferramentas foram usadas na construção do projeto:
+
+    JavaScript
+    Cypress
+
+### Pastas do projeto
 - cypress-hero/cypress/integration (ficam os testes)
     - unico_arquivo_spec.js             # exemplo sem page objets - tudo em um unico arquivo
     - testes_com_page_objects_spec.js   # exemplo com page objets - clean
@@ -20,9 +27,25 @@ Demonstrar o uso do Cypress no dia a dia: recursos e funcionalidades
     - cypress-hero/cypress/support/pages/Logon/index.js - funcoes (chamar nos scripts)
 
 
+### Autores-Colaboradores
+
+* **Diego Rocha** - *Create project*
+* **Samuel Agilizei** - *Creditos - metodo abaixo:* 
+```js
+    Cypress.Commands.add("login", () => {
+        cy.visit('http://localhost:3000/profile', {
+            onBeforeLoad: (win) => {
+                win.localStorage.clear();
+                win.localStorage.setItem('ongId', Cypress.env('createdOngId'));
+                win.localStorage.setItem('ongName', 'Gatos queridos');
+            }
+        });
+    })
+```
+* [link] https://github.com/samlucax/youtube-cypress/blob/video2/cypress/support/commands.js
+
 
 # Passos Rodar Aplicação Local:
-
 ### Pré-requisitos:
     Windows, macbook, linux
 
@@ -46,49 +69,20 @@ Demonstrar o uso do Cypress no dia a dia: recursos e funcionalidades
   ou 
   npm run cypress:open    **OBS: para usar o comando, veja o link: https://docs.cypress.io/guides/getting-started/installing-cypress#Adding-npm-scripts
 ```
-### Tecnologias
-As seguintes ferramentas foram usadas na construção do projeto:
-
-    JavaScript
-    Cypress
 
 
 
-## Autores-Colaboradores
-
-* **Diego Rocha** - *Create project*
-
-## Créditos
-* **Samuel Agilizei** - *creditos - metodo "login" abaixo:* 
-```js
-    Cypress.Commands.add("login", () => {
-        cy.visit('http://localhost:3000/profile', {
-            onBeforeLoad: (win) => {
-                win.localStorage.clear();
-                win.localStorage.setItem('ongId', Cypress.env('createdOngId'));
-                win.localStorage.setItem('ongName', 'Gatos queridos');
-            }
-        });
-    })
-```
-* [link] https://github.com/samlucax/youtube-cypress/blob/video2/cypress/support/commands.js
-
-
-
-
-# Cypress - Novidades
-Itens com '[🔥🔥🔥]' são novidades para automação web...
-cypress possibilita automação de:
+# Porque Deveria estudar sobre cypress para automação Web?
+### Itens com '[🔥🔥🔥]' são novidades:
 - api rest [🔥🔥🔥]
-
 - frontend
     get (id fixo, data-cy, selector)
     type (escrita valores em campos)
-- quando clicamos em um botao na pagina, ele consegue 'interceptar o resultado do request' [***] [🔥🔥🔥]
+- frontend: ao clicar em um botao, conseguimos 'interceptar o resultado da requisicao' [***] [🔥🔥🔥]
     response status: 200, 201, 204... [🔥🔥🔥]
     response body: id 571045 [🔥🔥🔥]
 
-## interceptar o resultado do request [***]
+### interceptar o resultado do request [***]
 ```js
     //preparando
     cy.server()
@@ -110,19 +104,19 @@ cypress possibilita automação de:
 
 
 # Cypress - Recursos
-## Exportar página
+### Exportar página
 ```js
     export default new HomePage();
 ```
 
-## Aliases
+### Aliases
 ```js
     cy.route('POST', '**/incidents').as('insertIncident')
     cy.get(".element").as("myElement");
 ```
     https://github.com/janmanfai/cypress-cheat-sheet#aliases
 
-## Como mostrar documentação cypress ao passar mouse em cima do comando, exemplo: cypress.visit(''), coloque essa linha em cima do arquivos:
+### Como mostrar documentação cypress ao passar mouse em cima do comando, exemplo: cypress.visit(''), coloque essa linha em cima do arquivos:
 ```js
     "/// <reference types="Cypress" />"
 ```
@@ -130,32 +124,31 @@ cypress possibilita automação de:
 
 
 # Outros Links
-## Actions
+### Actions
    - https://github.com/wlsf82/buger-eats-cypress-discovery
    - https://github.com/bahmutov/test-todomvc-using-app-actions
    
-## Page object
+### Page object
    - https://github.com/Tiago0Br/buger-eats-cypress-discovery
    - https://www.cypress.io/blog/2019/01/03/stop-using-page-objects-and-start-using-app-actions/
    
 
-## Usar ou não Page Objects?
+### Usar ou não Page Objects?
     Walmyr Filho falou isso no video: https://www.youtube.com/watch?v=YyU8wHm5cv4
     04:30 ele cita porque o page objects é desnecessario, tendo um sistema de 5 ou 1.000 paginas (exemplo)
     16:50 à 20:30 ele cita umas das grandes vantagens do uso do cypress:
     - costumamos ter poucos testes login, 1 teste sucesso (neste cenário usaremos a página para a automação - via front)
     - demais testes, que não são teste de login, faria o login via backend, deste modo os testes ficariam mais robustos
-        - funcionalidade cy.request também citada no curso 'Testes automatizados com Cypress (intermediário)', ], https://www.udemy.com/course/testes-automatizados-com-cypress-intermediario/
-    
+        - funcionalidade cy.request também é citada no curso 'Testes automatizados com Cypress (intermediário)' https://www.udemy.com/course/testes-automatizados-com-cypress-intermediario/
 
-## Comandos mais usados cypress - 3 estrelas stars
+### Comandos mais usados cypress - 3 estrelas stars
     https://github.com/samlucax/cypress-learning-checklist
 
 ### Cypress essential (mind maping)
     https://whimsical.com/cypress-essencial-XpeRr4NebcFJkC2Lpwm4W4
     https://github.com/samlucax/cypress-essencial-mindmap
 
-### Sites bons para treinar automação
+### Site bom para treinar automação
     https://github.com/cypress-io/cypress-realworld-app
 
 ### Videos
@@ -177,7 +170,7 @@ cypress possibilita automação de:
 
 # Ferramentas
 
-## Visual Code - extensões para cypress
+### Visual code - extensões para cypress
 https://www.youtube.com/watch?v=JGVB97ns0NQ
 
 - ES6 Mocha Snippets - Cory Noonan
@@ -190,6 +183,6 @@ https://www.youtube.com/watch?v=JGVB97ns0NQ
 - Visual Studio IntelliCode
 
 
-# Achou interessante o material?
+## Achou interessante o material?
 
 **_Deixe uma star ⭐ no repositório e um follow no [meu perfil](https://github.com/diegomedeirosrocha), isso me incentiva a criar conteúdos para comunidade**
